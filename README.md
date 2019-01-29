@@ -32,7 +32,7 @@ To get predicted results on unseen data, first you need to get docker ready. Two
 	```
 
 * Click this link below to download the built image from drive diretly:
-	https://drive.google.com/file/d/1uUvQAZsXUwMyPD2cRzdA4Uv_wf4J8rax/view?usp=sharing
+	https://drive.google.com/file/d/1DXPTtse12P29IwuEX8IdJNiiVWB_OaNS/view?usp=sharing
 	
 	Then load the downloaded image by typing the following commands in a terminal window: 
 	
