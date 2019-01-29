@@ -7,7 +7,7 @@ This project aims to rapdily research, build, and deploy a machine learning syst
 **Content:**
 
 * Get Predictions 
-	- if you want to get prediction results back, please follow steps in this section.
+	- if you want to get predicted results back, please follow steps in this section.
 
 * Project Details
 	- if you want to learn more about the project details, including data preparation, model training and evaluation, please check information in this section. 
@@ -18,7 +18,7 @@ This project aims to rapdily research, build, and deploy a machine learning syst
 
 ### Step1: Build Docker  
 
-To get predictions results on unseen data, first you need to get docker ready. Two choices are availabe here. You can either choose to build docker image on your machine, or you can click the link below to download a buitl image from drive. 
+To get predicted results on unseen data, first you need to get docker ready. Two choices are availabe here. You can either choose to build docker image on your machine, or you can click the link below to download a built image from drive. 
 
 * Follow steps below to build docker on your machine: 
 
@@ -32,28 +32,28 @@ To get predictions results on unseen data, first you need to get docker ready. T
 	```
 
 * Click this link below to download the built image from drive diretly:
+	https://drive.google.com/file/d/1uUvQAZsXUwMyPD2cRzdA4Uv_wf4J8rax/view?usp=sharing
 	
-	Then load the downloaded image by typing the following commands in a terminal window. 
+	Then load the downloaded image by typing the following commands in a terminal window: 
 	
 	```
 	$ sudo docker load < path_to_dga_detection.tar
 	$ sudo docker run -p 80:80 dga_detection:latest
-
 	```
 
 
-### Step2: Get Prediction Results
+### Step2: Get Predicted Results
 
-When docker is ready, you can get your predicted results back by calling REST API service. The tools used here to send unseen data is postman. Please follow the steps below carefully to get your predictions. 
+When docker is ready, you can get your predicted results back by calling REST API service. The tool used here to send unseen data is Postman. Please follow the steps below carefully to get your predictions. 
 
 1. Select **POST** method and type the url **http://0.0.0.0:80/predict** into the Params in Postman. 
 2. Under **Body** tab, select **form-data** button.
 3. Under **KEY** section, select **File** from the dropdown list and type **file** in the textbox.
 4. Click **Choose File** button and upload your unseen data as a .txt file. 
 ![Postman Sample](Images/PostmanSample.png "Sample Postman Input")
-5. Your .txt file should formatted to have one URL in each line. Each URL should contain domain information and TLD information. There shouldn't be 'ctl-A' delimiter at the end of each line. Sample input data are shown below: 
+5. Your .txt file should formatted to have one URL in each line. Each URL should contain domain information and TLD information. There shouldn't be 'ctl-A' delimiter at the end of each line. A .txt file named **sample.txt** is a sample file provided. A screenshot of sample input data is shown below: 
 ![Input Sample](Images/SampleInput.png "Sample Input")
-6. After loaded the .txt file containing unseen data, click on **Send** button. Your prediction results should be returned as a list. Sample results are shown below:
+6. After loaded the .txt file containing unseen data, click on **Send** button. The predicted results should be returned as a list. Sample results are shown below:
 ![Postman Results](Images/PostmanResults.png "Postman Results")
 
 
@@ -61,7 +61,7 @@ When docker is ready, you can get your predicted results back by calling REST AP
 
 Data preparation, model training and evaluation are contained in **DGA_Detecion.ipynb**. 
 
-Basic idea of this project is using ensemble method to improve performance and robustness of model. First data was cleaned, including removing subdomains, seperating primary domains and TLDs. Then a LSTM model is built on primary domains only. After got the probabilities of LSTM model, the probabilities were combined with the one-hot encoding results of top 250 common TLDs in dataset to build the final model. The overall architecture of the final proposed DGA detecion model is shown below:
+Basic idea of this project is using ensemble method to improve performance and robustness of model. First, data was cleaned, including removing subdomains, seperating primary domains and TLDs. Then a LSTM model is built on primary domains only. After got the probabilities of LSTM model, the probabilities were combined with the one-hot encoding results of top 250 common TLDs in dataset to build the final model. The overall architecture of the final proposed DGA detecion model is shown below:
 
 ![Architecture of Model](Images/Architecture.png "Architecture of Model")
 
