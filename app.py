@@ -119,7 +119,8 @@ def clean_file(filename):
         df_list.append(dga5)
     
     # organize above datasets into a final dataset as dga_new
-    dga_new = pd.concat(df_list, ignore_index=True)
+    dga_new = pd.concat(df_list)
+    dga_new.sort_index(inplace=True)
 
     # select four columns to build DGA_Detection model
     dga_cleaned = dga_new[['primary1','primary2','tld1','tld2']]

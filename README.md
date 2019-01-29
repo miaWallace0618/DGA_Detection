@@ -51,7 +51,7 @@ When docker is ready, you can get your predicted results back by calling REST AP
 3. Under **KEY** section, select **File** from the dropdown list and type **file** in the textbox.
 4. Click **Choose File** button and upload your unseen data as a .txt file. 
 ![Postman Sample](Images/PostmanSample.png "Sample Postman Input")
-5. Your .txt file should formatted to have one URL in each line. Each URL should contain domain information and TLD information. Sample input data are shown below: 
+5. Your .txt file should formatted to have one URL in each line. Each URL should contain domain information and TLD information. There shouldn't be 'ctl-A' delimiter at the end of each line. Sample input data are shown below: 
 ![Input Sample](Images/SampleInput.png "Sample Input")
 6. After loaded the .txt file containing unseen data, click on **Send** button. Your prediction results should be returned as a list. Sample results are shown below:
 ![Postman Results](Images/PostmanResults.png "Postman Results")
